@@ -16,16 +16,16 @@ import (
 	"rpa-sdk/models"
 )
 
-// PostAssignmentReader is a Reader for the PostAssignment structure.
-type PostAssignmentReader struct {
+// StopAssignmentReader is a Reader for the StopAssignment structure.
+type StopAssignmentReader struct {
 	formats strfmt.Registry
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PostAssignmentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *StopAssignmentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewPostAssignmentOK()
+		result := NewStopAssignmentOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -36,28 +36,28 @@ func (o *PostAssignmentReader) ReadResponse(response runtime.ClientResponse, con
 	}
 }
 
-// NewPostAssignmentOK creates a PostAssignmentOK with default headers values
-func NewPostAssignmentOK() *PostAssignmentOK {
-	return &PostAssignmentOK{}
+// NewStopAssignmentOK creates a StopAssignmentOK with default headers values
+func NewStopAssignmentOK() *StopAssignmentOK {
+	return &StopAssignmentOK{}
 }
 
-/*PostAssignmentOK handles this case with default header values.
+/*StopAssignmentOK handles this case with default header values.
 
 Assignment meta info
 */
-type PostAssignmentOK struct {
+type StopAssignmentOK struct {
 	Payload *models.Meta
 }
 
-func (o *PostAssignmentOK) Error() string {
-	return fmt.Sprintf("[POST /assignments][%d] postAssignmentOK  %+v", 200, o.Payload)
+func (o *StopAssignmentOK) Error() string {
+	return fmt.Sprintf("[DELETE /assignments/{Id}][%d] stopAssignmentOK  %+v", 200, o.Payload)
 }
 
-func (o *PostAssignmentOK) GetPayload() *models.Meta {
+func (o *StopAssignmentOK) GetPayload() *models.Meta {
 	return o.Payload
 }
 
-func (o *PostAssignmentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *StopAssignmentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Meta)
 

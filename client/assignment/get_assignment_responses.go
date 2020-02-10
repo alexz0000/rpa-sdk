@@ -16,16 +16,16 @@ import (
 	"rpa-sdk/models"
 )
 
-// PostAssignmentReader is a Reader for the PostAssignment structure.
-type PostAssignmentReader struct {
+// GetAssignmentReader is a Reader for the GetAssignment structure.
+type GetAssignmentReader struct {
 	formats strfmt.Registry
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PostAssignmentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetAssignmentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewPostAssignmentOK()
+		result := NewGetAssignmentOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -36,28 +36,28 @@ func (o *PostAssignmentReader) ReadResponse(response runtime.ClientResponse, con
 	}
 }
 
-// NewPostAssignmentOK creates a PostAssignmentOK with default headers values
-func NewPostAssignmentOK() *PostAssignmentOK {
-	return &PostAssignmentOK{}
+// NewGetAssignmentOK creates a GetAssignmentOK with default headers values
+func NewGetAssignmentOK() *GetAssignmentOK {
+	return &GetAssignmentOK{}
 }
 
-/*PostAssignmentOK handles this case with default header values.
+/*GetAssignmentOK handles this case with default header values.
 
 Assignment meta info
 */
-type PostAssignmentOK struct {
+type GetAssignmentOK struct {
 	Payload *models.Meta
 }
 
-func (o *PostAssignmentOK) Error() string {
-	return fmt.Sprintf("[POST /assignments][%d] postAssignmentOK  %+v", 200, o.Payload)
+func (o *GetAssignmentOK) Error() string {
+	return fmt.Sprintf("[GET /assignments/{Id}][%d] getAssignmentOK  %+v", 200, o.Payload)
 }
 
-func (o *PostAssignmentOK) GetPayload() *models.Meta {
+func (o *GetAssignmentOK) GetPayload() *models.Meta {
 	return o.Payload
 }
 
-func (o *PostAssignmentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *GetAssignmentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Meta)
 

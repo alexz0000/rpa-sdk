@@ -13,7 +13,7 @@ import (
 
 	strfmt "github.com/go-openapi/strfmt"
 
-	"models"
+	"rpa-sdk/models"
 )
 
 // GetAssignmentsReader is a Reader for the GetAssignments structure.

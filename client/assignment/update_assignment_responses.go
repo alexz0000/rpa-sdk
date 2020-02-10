@@ -16,16 +16,16 @@ import (
 	"rpa-sdk/models"
 )
 
-// PostAssignmentReader is a Reader for the PostAssignment structure.
-type PostAssignmentReader struct {
+// UpdateAssignmentReader is a Reader for the UpdateAssignment structure.
+type UpdateAssignmentReader struct {
 	formats strfmt.Registry
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PostAssignmentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UpdateAssignmentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewPostAssignmentOK()
+		result := NewUpdateAssignmentOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -36,28 +36,28 @@ func (o *PostAssignmentReader) ReadResponse(response runtime.ClientResponse, con
 	}
 }
 
-// NewPostAssignmentOK creates a PostAssignmentOK with default headers values
-func NewPostAssignmentOK() *PostAssignmentOK {
-	return &PostAssignmentOK{}
+// NewUpdateAssignmentOK creates a UpdateAssignmentOK with default headers values
+func NewUpdateAssignmentOK() *UpdateAssignmentOK {
+	return &UpdateAssignmentOK{}
 }
 
-/*PostAssignmentOK handles this case with default header values.
+/*UpdateAssignmentOK handles this case with default header values.
 
 Assignment meta info
 */
-type PostAssignmentOK struct {
+type UpdateAssignmentOK struct {
 	Payload *models.Meta
 }
 
-func (o *PostAssignmentOK) Error() string {
-	return fmt.Sprintf("[POST /assignments][%d] postAssignmentOK  %+v", 200, o.Payload)
+func (o *UpdateAssignmentOK) Error() string {
+	return fmt.Sprintf("[PATCH /assignments/{Id}][%d] updateAssignmentOK  %+v", 200, o.Payload)
 }
 
-func (o *PostAssignmentOK) GetPayload() *models.Meta {
+func (o *UpdateAssignmentOK) GetPayload() *models.Meta {
 	return o.Payload
 }
 
-func (o *PostAssignmentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *UpdateAssignmentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Meta)
 
