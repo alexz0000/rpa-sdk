@@ -11,7 +11,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"client/assignment"
+	"github.com/alexz0000/rpa-sdk/client/assignment"
 )
 
 // Default rpa HTTP client.
